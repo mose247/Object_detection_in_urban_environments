@@ -67,6 +67,45 @@ To minimize the loss function, **Stochastic Gradient Descent (SGD) with Momentum
   }
 ```
 
+Finally, the following data augmentations are incorporated to diversify the training dataset and improve models' generalization capabilities: 
+* **Random Horizontal Flip**: flipping images horizontally expose models to variations of object orientations. This helps in making the model more robust to objects approaching from different directions and angles.
+  ```
+  data_augmentation_options {
+    random_horizontal_flip {
+    }
+  }
+  ```
+
+* **Random Crop with Specific Parameters**: random cropping of the input images enables models to learn how to hanlde objects of different size and aspect ratio. This can be particularly important for accurately detecting objects that can appear at different distances.
+  ```
+  data_augmentation_options {
+    random_crop_image {
+      min_object_covered: 0.0
+      min_aspect_ratio: 0.75
+      max_aspect_ratio: 3.0
+      min_area: 0.75
+      max_area: 1.0
+      overlap_thresh: 0.0
+    }
+  }
+  ```
+* **Random Adjust Brightness**: adjusting the brightness introduces variations in lighting conditions. This helps the model become more robust to different lighting scenarios, such as nighttime, daytime or overcast weather.
+  ```
+  data_augmentation_options {
+    random_adjust_brightness {
+      max_delta: 0.05
+    }
+  }
+  ```
+* **Random Black Patches**: adding random black patches to the input images mimics occluded objects in real-world. This improves models' ability to detect objects even when they are not entirely visible, which is common in urban traffic scenes.
+  ```
+  data_augmentation_options {
+    random_black_patches {
+      max_black_patches: 10
+      size_to_image_ratio: 0.1
+    }
+  }
+  ```
 ### Modify output layer
 
 
