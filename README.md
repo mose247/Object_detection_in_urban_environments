@@ -2,7 +2,7 @@
 Object detection in urban environments
 
 ## Table of Contents
-1. [Project Description](##Project Description)
+1. [Project Description](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#project-description)
 
 2. [Install & Run](##Install & Run)
 
