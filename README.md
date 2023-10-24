@@ -46,9 +46,9 @@ For the purposes of this project no network will be train from scratch, but rath
   * `fine_tune_checkpoint: "checkpoint/ckpt-0"`
   * `fine_tune_checkpoint_type: "detection"`
 
-Additionaly, one may also experiment with different optimization strategies, learning rates or data augmentations to improve the resulting performances of the models. Due to the limited AWS budget available, to complete training jobs within reasonable time and avoid capacity errors models were trained using just **2000 updating steps** and **batches of 8** images.
+Additionaly, different strategies for optimization, learning rates, and data augmentations can be explored to enhance models performance. Due to limitations on the AWS budget, models are trained using just **2000 updating steps** and **batches of 8** images. This helps completing trainings within reasonable time and avoiding capacity errors.
 
-In order to minimize the loss function **SGD with Momentum** was used. With respect to Vanilla SGD, this optimization technique tends to converge faster and is more robust to local minima. Nevertheless, it tends to obscillate more. To reduce obscillation a cosine annealing with linear warm-up was used. The warm-up allows to reduce potential early overfitting, while the decay should limit obscillations in later stages of the training.
+To minimize the loss function, **Stochastic Gradient Descent (SGD) with Momentum** is utilized. This optimization technique is known for its faster convergence and increased robustness to local minima compared to Vanilla SGD. Nevertheless, it tends to introduce more oscillations. To address this issue, a cosine annealing strategy with linear warm-up is adopted. The warm-up phase serves to mitigate potential early overfitting, while the decay phase is designed to reduce oscillations in the later stages of training.
 
 ```
   optimizer {
