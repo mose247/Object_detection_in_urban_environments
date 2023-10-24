@@ -33,12 +33,15 @@ For the purposes of this project no network will be train from scratch, but rath
 
 * Change the dimension of the output layer in `model`:
   *  `num_classes: 3`
+    
 * Set the path to the new training dataset and label map in `train_input_reader`:
   * `input_path: "/opt/ml/input/data/train/*.tfrecord"`
   * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
+    
 * Set the path to the new evaluation dataset and label map in `eval_input_reader`:
   * `input_path: "/opt/ml/input/data/val/*.tfrecord"`
   * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
+    
 * Set the path to the pre-trained weigths and specify the tuning type in `train_config`:
   * `fine_tune_checkpoint: "checkpoint/ckpt-0"`
   * `fine_tune_checkpoint_type: "detection"`
