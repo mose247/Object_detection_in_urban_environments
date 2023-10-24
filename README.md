@@ -48,7 +48,7 @@ For the purposes of this project no network will be train from scratch, but rath
 
 Additionaly, one may also experiment with different optimization strategies, learning rates or data augmentations to improve the resulting performances of the models. Due to the limited AWS budget available, to complete training jobs within reasonable time and avoid capacity errors models were trained using just **2000 updating steps** and **batches of 8** images.
 
-To optimize the loss function SGD with Momentum was used. With respect to Vanilla SGD, this optimization techniques tends to converge faster and is less sensitive to local minima.
+In order to minimize the loss function **SGD with Momentum** was used. With respect to Vanilla SGD, this optimization technique tends to converge faster and is more robust to local minima. Nevertheless, it tends to obscillate more. To reduce obscillation a cosine annealing with linear warm-up was used. The warm-up allows to reduce potential early overfitting, while the decay should limit obscillations in later stages of the training.
 
 ### Modify output layer
 
