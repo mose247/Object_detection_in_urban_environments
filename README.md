@@ -67,7 +67,8 @@ To minimize the loss function, **Stochastic Gradient Descent (SGD) with Momentum
   }
 ```
 
-Finally, the following data augmentations are incorporated to diversify the training dataset and improve models' generalization capabilities: 
+Finally, the following data augmentations are incorporated to diversify the training dataset and improve models' generalization capabilities.
+
 * **Random Horizontal Flip**: flipping images horizontally expose models to variations of object orientations. This helps in making the model more robust to objects approaching from different directions and angles.
   ```
   data_augmentation_options {
@@ -106,13 +107,6 @@ Finally, the following data augmentations are incorporated to diversify the trai
     }
   }
   ```
-### Modify output layer
-
-
-### Add data augmentation strategies
-
-
-### Experiment with annealing
 
 
 ### Results
