@@ -118,7 +118,9 @@ The graph below shows the total training loss (localization + classification + r
 Unfortunately, it wasn't possible to further evaluate the mAP of the models on the validation dataset due to some errors appeared during the validation phase. Nevertheless, the two videos before show a side-to-side comparison of the models on 100 frames.
 
 <p align="center">
-![](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/data/output_mobilenet.gif)
+<img src="https://github.com/mose247/Object_detection_in_urban_environments/blob/main/data/output_resnet50.gif" width=40% height=40%>
+  <img src="https://github.com/mose247/Object_detection_in_urban_environments/blob/main/data/output_mobilenet.gif" width=40% height=40%>
 </p>
+
 
 ## Future work & Improvements
