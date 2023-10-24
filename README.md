@@ -114,12 +114,13 @@ The graph below shows the total training loss (localization + classification + r
 <p align="center">
 <img src="https://github.com/mose247/Object_detection_in_urban_environments/assets/91455159/3d1af224-f4d5-4bbe-a329-4fa923e757ce" title="Total loss" width=50% height=50%>
 <em>image_caption</em>
+  
 </p>
-
-| ![](https://github.com/mose247/Object_detection_in_urban_environments/assets/91455159/3d1af224-f4d5-4bbe-a329-4fa923e757ce) | 
-|:----------------------------------------------------------------------------:| 
+<p align="center">
+| <img src="https://github.com/mose247/Object_detection_in_urban_environments/assets/91455159/3d1af224-f4d5-4bbe-a329-4fa923e757ce" title="Total loss" width=50% height=50%>| 
+|:--:| 
 | *Space* |
-
+</p>
 Unfortunately, it wasn't possible to further evaluate the mAP of the models on the validation dataset due to some errors appeared during the validation phase. Nevertheless, the two videos before show a side-to-side comparison of the models on 100 frames.
 
 <p align="center">
