@@ -112,10 +112,8 @@ Finally, the following data augmentations are incorporated to diversify the trai
 The graph below shows the total training loss (localization + classification + regularization) obtained for the MobileNet V2 (in blue) and the ResNet50 V1 (in orange) after 2000 updating steps. While ResNet50 V1 didn't converge, MobileNet V2 reached a plateau. Nevertheless, even in the second case, the total loss is still quite high, which may be a sign that the optimization got stuck in a local minimum.
 
 <p align="center">
-<figure>
-  <img src="https://github.com/mose247/Object_detection_in_urban_environments/assets/91455159/3d1af224-f4d5-4bbe-a329-4fa923e757ce" title="Total loss" width=50% height=50%>
-  <figcaption> blue = MobileNet loss; orange = ResNet50 loss </figcaption>
-</figure>
+<img src="https://github.com/mose247/Object_detection_in_urban_environments/assets/91455159/3d1af224-f4d5-4bbe-a329-4fa923e757ce" title="Total loss" width=50% height=50%>
+<em>image_caption</em>
 </p>
 
 Unfortunately, it wasn't possible to further evaluate the mAP of the models on the validation dataset due to some errors appeared during the validation phase. Nevertheless, the two videos before show a side-to-side comparison of the models on 100 frames.
