@@ -9,9 +9,9 @@
 In this project, pre-trained models from the [TensorFlow object detection API](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/index.html) are fine-tuned in order to detect and classify cars, pedestrians and cyclists on the [Waymo Open Dataset](https://waymo.com/open/). In particular, experiments were conducted on **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640**, but you can find other models [here](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md). 
 
 The project leverages the following Amazon Web Services (AWS):
-- [AWS Sagemaker](https://aws.amazon.com/sagemaker/) for training and deploying machine learning models;
-- [AWS ECR](https://aws.amazon.com/ecr/?nc2=h_ql_prod_ct_ec2reg) for storing a docker container with all the dependencies required by the TensorFlow Object Detection API;
-- [AWS S3](https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3) for storing tensorboard logs and accessing the dataset;
+* [AWS Sagemaker](https://aws.amazon.com/sagemaker/) for training and deploying machine learning models;
+* [AWS ECR](https://aws.amazon.com/ecr/?nc2=h_ql_prod_ct_ec2reg) for storing a docker container with all the dependencies required by the TensorFlow Object Detection API;
+* [AWS S3](https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3) for storing tensorboard logs and accessing the dataset;
   
 The dataset has already been exported using the [TFRecords format](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#create-tensorflow-records) and stored in the public AWS S3 bucket `s3://cd2688-object-detection-tf2`. The images are saved with 640x640 resolution.
 
@@ -29,14 +29,15 @@ Finally, to run the project and visualize the results:
 2. run `my_deploy_models.ipynb` and follow the instructions in the notebook;
 
 ## Methodology
-For the purposes of this project no network will be train from scratch, but rather we will reuse the pre-trained **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** provided by TensorFlow. In order to set up a new transfer learning job, the protobuf [files](https://github.com/tensorflow/models/tree/master/research/object_detection/configs/tf2) that were use to configure the training of the two networks on the [COCO 2017 dataset](https://cocodataset.org/#home) should be modified. In particular, the following tweaks are necessary to ensure the success of the learning job:
+For the purposes of this project no network will be train from scratch, but rather we will reuse the pre-trained **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** provided by TensorFlow. In order to set up a new transfer learning job, the protobuf [files](https://github.com/tensorflow/models/tree/master/research/object_detection/configs/tf2) that were use to configure the training of the two networks on the [COCO 2017 dataset](https://cocodataset.org/#home) should be modified. In particular, the following tweaks are necessary:
 
-- change the dimension of the output layer: `num_classes: 3`;
-- set the path to the training dataset: `input_path: "/opt/ml/input/data/train/*.tfrecord"`;
-- set the path to the evaluation dataset: `input_path: "/opt/ml/input/data/val/*.tfrecord"`;
-- set the path to the label map: `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`;
-- set the path to the pre-trained weigths: `fine_tune_checkpoint: "checkpoint/ckpt-0"`;
-- set the tuning of all the weights: `fine_tune_checkpoint_type: "detection"`;
+* change the dimension of the output layer: `num_classes: 3`
+* set the path to the training dataset: `input_path: "/opt/ml/input/data/train/*.tfrecord"`
+* * fsdf
+* set the path to the evaluation dataset: `input_path: "/opt/ml/input/data/val/*.tfrecord"`
+* set the path to the label map: `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
+* set the path to the pre-trained weigths: `fine_tune_checkpoint: "checkpoint/ckpt-0"`
+* set the tuning of all the weights: `fine_tune_checkpoint_type: "detection"`
 
 
 The **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** models available in the TF2 Object Detection model zoo are trained on the [COCO 2017 dataset](https://cocodataset.org/#home), which is a large-scale object detection and segmentation dataset containing annotations for 90 different object classes.
