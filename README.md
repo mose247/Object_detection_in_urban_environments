@@ -29,15 +29,19 @@ Finally, to run the project and visualize the results:
 2. run `my_deploy_models.ipynb` and follow the instructions in the notebook;
 
 ## Methodology
-For the purposes of this project no network will be train from scratch, but rather we will reuse the pre-trained **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** provided by TensorFlow. In order to set up a new transfer learning job, the protobuf [files](https://github.com/tensorflow/models/tree/master/research/object_detection/configs/tf2) that were use to configure the training of the two networks on the [COCO 2017 dataset](https://cocodataset.org/#home) should be modified. In particular, the following tweaks are necessary:
+For the purposes of this project no network will be train from scratch, but rather we will reuse the pre-trained **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** provided by TensorFlow. In order to set up a new transfer learning job, the protobuf [files](https://github.com/tensorflow/models/tree/master/research/object_detection/configs/tf2) that were use to configure the training of the two networks on the [COCO 2017 dataset](https://cocodataset.org/#home) should be modified. In particular, to tune the models on the Waymo Open Dataset loaded in the AWS S3 public bucket, the following tweaks are necessary:
 
-* change the dimension of the output layer: `num_classes: 3`
-* set the path to the training dataset: `input_path: "/opt/ml/input/data/train/*.tfrecord"`
-* * fsdf
-* set the path to the evaluation dataset: `input_path: "/opt/ml/input/data/val/*.tfrecord"`
-* set the path to the label map: `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
-* set the path to the pre-trained weigths: `fine_tune_checkpoint: "checkpoint/ckpt-0"`
-* set the tuning of all the weights: `fine_tune_checkpoint_type: "detection"`
+* Change the dimension of the output layer in the `model` field:
+  *  `num_classes: 3`
+* Set the path to the new training dataset and label map in the `train_input_reader` field:
+  * `input_path: "/opt/ml/input/data/train/*.tfrecord"`
+  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
+* Set the path to the new evaluation dataset and label map in the `eval_input_reader` field:
+  * `input_path: "/opt/ml/input/data/val/*.tfrecord"`
+  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
+* Set the path to the pre-trained weigths and specify the tuning type in the `train_config` field::
+  *`fine_tune_checkpoint: "checkpoint/ckpt-0"`
+  * `fine_tune_checkpoint_type: "detection"`
 
 
 The **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** models available in the TF2 Object Detection model zoo are trained on the [COCO 2017 dataset](https://cocodataset.org/#home), which is a large-scale object detection and segmentation dataset containing annotations for 90 different object classes.
