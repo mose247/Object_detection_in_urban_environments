@@ -110,7 +110,7 @@ Finally, the following data augmentations are incorporated to diversify the trai
 
 ## Results
 
-![Total loss](https://github.com/mose247/Object_detection_in_urban_environments/assets/91455159/3d1af224-f4d5-4bbe-a329-4fa923e757ce | width=250)
+![Total loss](https://github.com/mose247/Object_detection_in_urban_environments/assets/91455159/3d1af224-f4d5-4bbe-a329-4fa923e757ce)
 
 
 ## Future work & Improvements
