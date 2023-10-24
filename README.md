@@ -29,7 +29,7 @@ Finally, to run the project and visualize the results:
 2. run `my_deploy_models.ipynb` and follow the instructions in the notebook;
 
 ## Methodology
-
+The **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** models available in the TF2 Object Detection model zoo are trained on the [COCO 2017 dataset](https://cocodataset.org/#home), which is a large-scale object detection and segmentation dataset containing annotations for 90 different object classes.
 ### Modify output layer
 
 
