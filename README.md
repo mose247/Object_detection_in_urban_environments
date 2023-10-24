@@ -32,7 +32,7 @@ Finally, to run the project and visualize the results:
 For the purposes of this project no network will be train from scratch, but rather we will reuse the pre-trained **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** provided by TensorFlow. In order to set up a new transfer learning job, the protobuf [files](https://github.com/tensorflow/models/tree/master/research/object_detection/configs/tf2) that were use to configure the training of the two networks on the [COCO 2017 dataset](https://cocodataset.org/#home) should be modified. In particular, to tune the models on the Waymo Open Dataset loaded in the AWS S3 public bucket, the following tweaks are necessary:
 
 1. Change the dimension of the output layer in `model`:
-     `num_classes: 3`
+  * `num_classes: 3`
     
 3. Set the path to the new training dataset and label map in `train_input_reader`:
   * `input_path: "/opt/ml/input/data/train/*.tfrecord"`
@@ -46,8 +46,7 @@ For the purposes of this project no network will be train from scratch, but rath
   * `fine_tune_checkpoint: "checkpoint/ckpt-0"`
   * `fine_tune_checkpoint_type: "detection"`
 
-
-The **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** models available in the TF2 Object Detection model zoo are trained on the [COCO 2017 dataset](https://cocodataset.org/#home), which is a large-scale object detection and segmentation dataset containing annotations for 90 different object classes.
+Additionaly, one may also experiment with different optimization strategies, learning rates or data augmentations to improve the resulting performances of the models. Due to the limited AWS budget available, to keep the training jobs under reasonable time the models were trained using just 2000 updating steps and a batch size of 8 images.
 
 ### Modify output layer
 
