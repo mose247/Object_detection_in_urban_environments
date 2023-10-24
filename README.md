@@ -14,7 +14,7 @@ The dataset has already been exported using the [TFRecords format](https://tenso
 
 ## Install & Run
 To setup the project create a new SageMaker notebook and clone in it the [Udacity's Object Detection in an Urban Environment repository](https://github.com/udacity/cd2688-object-detection-in-urban-environment-project).
->> Note: while creating the notebook, make sure to attach the `AmazonS3FullAccess` and `AmazonEC2ContainerRegistryFullAccess` policies to its IAM Role in order to give your Sagemaker notebook access to S3 and ECR services.
+> Note: while creating the notebook, make sure to attach the `AmazonS3FullAccess` and `AmazonEC2ContainerRegistryFullAccess` policies to its IAM Role in order to give your Sagemaker notebook access to S3 and ECR services.
 
 ## Methodology
 
