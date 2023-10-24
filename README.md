@@ -14,11 +14,15 @@ The project leverages the following Amazon Web Services (AWS):
 The dataset has already been exported using the [TFRecords format](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#create-tensorflow-records) and stored in the public AWS S3 bucket `s3://cd2688-object-detection-tf2`. The images are saved with 640x640 resolution.
 
 ## Install & Run
-To setup the project create a new SageMaker notebook and clone in it the Udacity's Object Detection in an Urban Environment [repository](https://github.com/udacity/cd2688-object-detection-in-urban-environment-project). Then, create a new S3 bucket for storing your personal tensorboard logs. 
+To setup the project create a new SageMaker notebook and clone in it the Udacity's Object Detection in an Urban Environment [repo](https://github.com/udacity/cd2688-object-detection-in-urban-environment-project). Then, create a new S3 bucket for storing your personal tensorboard logs. 
 
 > Note: while creating the notebook, make sure to attach the `AmazonS3FullAccess` and `AmazonEC2ContainerRegistryFullAccess` policies to its IAM Role in order to give your Sagemaker notebook access to S3 and ECR services.
 
 Subsequently, copy the two notebooks in the present repo, `my_train_models.ipynb` and `my_deploy_models.ipynb`, in the `1_model_training` and `2_model_inference` directories, respectively. Finally, add the two config files `config/mobilenet_pipeline.config` and `config/resnet50_pipeline.config` to the `1_model_training/source_dir` directory.
+
+Finally, to run the project and visualize the results:
+1. run `my_train_models.ipynb` following the instructions in the notebook;
+2. run `my_deploy_models.ipynb` following the instructions in the notebook;
 
 ## Methodology
 
