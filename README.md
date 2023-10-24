@@ -3,9 +3,9 @@ Object detection in urban environments
 
 ## Table of Contents
 1. [Project Description](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#project-description)
-
-2. [Install & Run](##Install & Run)
-
+2. [Install & Run](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#install--run)
+3. [Methodology](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#methodology)
+4. [Future Work & Imporvements](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#future-work--improvements)
 ## Project Description
 In this project, pre-trained models from the [TensorFlow object detection API](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/index.html) are fine-tuned in order to detect and classify cars, pedestrians and cyclists on the [Waymo Open Dataset](https://waymo.com/open/). In particular, experiments were conducted on **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640**, but you can find other models [here](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md). 
 
