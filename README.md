@@ -18,9 +18,9 @@ To setup the project create a new SageMaker notebook instance and clone in it th
 
 > Note: while creating the notebook, make sure to attach the `AmazonS3FullAccess` and `AmazonEC2ContainerRegistryFullAccess` policies to its IAM Role in order to give your Sagemaker notebook instance access to S3 and ECR services.
 
-Subsequently, add the files in the present repo to the cloned one by copying `my_train_models.ipynb` into the `1_model_training` directory and `my_deploy_models.ipynb` into the `2_model_inference` directory. 
+Subsequently, add the files in the present repo to the cloned one by copying `my_train_models.ipynb` into the `1_model_training` directory and `my_deploy_models.ipynb` into the `2_model_inference` directory. This step ensure that you will have the relevant notebooks in their appropriate locations. 
 
-This step ensure that you will have the relevant notebooks in their appropriate locations. Next, it is necessary to set up the configuration files to support the model training. To do this, add the provided config files to the `1_model_training/source_dir` directory. These configuration files play a crucial role in guiding the training process, so it's essential to have them in the right place.
+Next, it is necessary to set up the configuration files to support the model training. To do this, add the provided config files to the `1_model_training/source_dir` directory. These configuration files play a crucial role in guiding the training process, so it's essential to have them in the right place.
 
 Finally, to run the project and visualize the results:
 1. run `my_train_models.ipynb` and follow the instructions in the notebook;
