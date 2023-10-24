@@ -33,17 +33,22 @@ For the purposes of this project no network will be train from scratch, but rath
 
 * Change the dimension of the output layer in `model` to match the new classification task. Since the Waymo Open Dataset contains annotations for three classes (car, pedestrian and cyclist), we should set:
   * `num_classes: 3`
+    
 * Set the path to the new training dataset and label map in `train_input_reader`:
   * `input_path: "/opt/ml/input/data/train/*.tfrecord"`
-  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`  
+  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
+     
 * Set the path to the new evaluation dataset and label map in `eval_input_reader`:
   * `input_path: "/opt/ml/input/data/val/*.tfrecord"`
-  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`    
+  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
+    
 * Set the path to the pre-trained weigths and specify the tuning type in `train_config`:
   * `fine_tune_checkpoint: "checkpoint/ckpt-0"`
   * `fine_tune_checkpoint_type: "detection"`
 
-Additionaly, one may also experiment with different optimization strategies, learning rates or data augmentations to improve the resulting performances of the models. Due to the limited AWS budget available, to keep the training jobs under reasonable time the models were trained using just 2000 updating steps and a batch size of 8 images.
+Additionaly, one may also experiment with different optimization strategies, learning rates or data augmentations to improve the resulting performances of the models. Due to the limited AWS budget available, to complete training jobs within reasonable time and avoid capacity errors models were trained using just **2000 updating steps** and **batches of 8** images.
+
+To optimize the loss function SGD with Momentum was used. With respect to Vanilla SGD, this optimization techniques tends to converge faster and is less sensitive to local minima.
 
 ### Modify output layer
 
