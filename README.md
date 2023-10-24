@@ -12,7 +12,8 @@ In this project, pre-trained models from the [TensorFlow object detection API](h
   
 The dataset has already been exported using the [TFRecords format](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/training.html#create-tensorflow-records) and stored in the public AWS S3 bucket `s3://cd2688-object-detection-tf2`. The images are saved with 640x640 resolution.
 
-## Installation
+## Install & Run
+To setup the project create a new SageMaker notebook instance and clone in it the [Udacity's Object Detection in an Urban Environment repository](https://github.com/udacity/cd2688-object-detection-in-urban-environment-project).
 
 ## Methodology
 
