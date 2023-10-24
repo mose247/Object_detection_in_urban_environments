@@ -1,5 +1,9 @@
 # Object detection in urban environments
 
+| ResNet50 V1             |  MobileNet V2 |
+:-------------------------:|:-------------------------:
+![](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/data/frame_resnet50.jpg)  |  ![](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/data/frame_mobilenet.jpg)
+
 ## Table of Contents
 1. [Project Description](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#project-description)
 2. [Install & Run](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#install--run)
