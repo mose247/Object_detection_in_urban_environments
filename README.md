@@ -129,3 +129,7 @@ The following videos provide a qualitative side-to-side comparison of the two mo
 
 
 ## Future work & Improvements
+Future work to improve the results might include:
+* Solving the error that prevents the evaluation of models' mAP. This will enable to have a better understanding of the models performances and allow to make better-informed comparisons.
+* Training the models using bigger batch sizes to get a better approximation of the gradient and make wiser updating steps.
+* Training the models for more steps.
