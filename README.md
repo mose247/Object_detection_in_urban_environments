@@ -108,7 +108,10 @@ Finally, the following data augmentations are incorporated to diversify the trai
   }
   ```
 
-### Results
+## Results
+file:///home/luca/Downloads/Loss_total_loss%20(1).svg
+
+
 
 
 ## Future work & Improvements
