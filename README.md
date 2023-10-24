@@ -8,7 +8,8 @@
 1. [Project Description](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#project-description)
 2. [Install & Run](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#install--run)
 3. [Methodology](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#methodology)
-4. [Future Work & Imporvements](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#future-work--improvements)
+4. [Results](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#results)
+5. [Future Work & Imporvements](https://github.com/mose247/Object_detection_in_urban_environments/blob/main/README.md#future-work--improvements)
 ## Project Description
 In this project, pre-trained models from the [TensorFlow object detection API](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/index.html) are fine-tuned in order to detect and classify cars, pedestrians and cyclists on the [Waymo Open Dataset](https://waymo.com/open/). In particular, experiments were conducted on **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640**, but you can find other models [here](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md). 
 
@@ -113,13 +114,13 @@ Finally, the following data augmentations are incorporated to diversify the trai
   ```
 
 ## Results
-The graph below shows the total training loss (localization + classification + regularization) obtained for the MobileNet V2 (in blue) and the ResNet50 V1 (in orange) after 2000 updating steps. While ResNet50 V1 didn't converge, MobileNet V2 reached a plateau. Nevertheless, even in the second case, the total loss is still quite high, which may be a sign that the optimization got stuck in a local minimum.
+The graph below shows the total training loss (localization + classification + regularization) obtained for the MobileNet V2 (in blue) and the ResNet50 V1 (in orange) after 2000 updating steps. While ResNet50 V1 didn't converge, MobileNet V2 reached a plateau. Nevertheless, even in the second case, the total loss is still quite high, which may be a sign that the optimization got stuck in a local minimum. Moreover, it wasn't possible to further evaluate the mAP of the models on the validation dataset due to an [error](https://knowledge.udacity.com/questions/999401) with the Pillow library appeared during the validation phase. 
 
 <p align="center">
 <img src="https://github.com/mose247/Object_detection_in_urban_environments/assets/91455159/3d1af224-f4d5-4bbe-a329-4fa923e757ce" title="Total loss" width=50% height=50%>
 </p>
   
-Unfortunately, it wasn't possible to further evaluate the mAP of the models on the validation dataset due to some errors appeared during the validation phase. Nevertheless, the two videos before show a side-to-side comparison of the models on 100 frames.
+The following videos provide a qualitative side-to-side comparison of the two models on 100 frames. As you can see MobileNet V2 does a way better job in detect pedestrians rather than ResNet50. This might be an index that ResNet50 is more sensitive to the skewness of the training set, as pedestrians are less present in the dataset than cars.
 
 | ResNet50 V1             |  MobileNet V2 |
 :-------------------------:|:-------------------------:
