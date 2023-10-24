@@ -31,18 +31,15 @@ Finally, to run the project and visualize the results:
 ## Methodology
 For the purposes of this project no network will be train from scratch, but rather we will reuse the pre-trained **SSD MobileNet V2 FPNLite 640x640** and **SSD ResNet50 V1 FPN 640x640** provided by TensorFlow. In order to set up a new transfer learning job, the protobuf [files](https://github.com/tensorflow/models/tree/master/research/object_detection/configs/tf2) that were use to configure the training of the two networks on the [COCO 2017 dataset](https://cocodataset.org/#home) should be modified. In particular, to tune the models on the Waymo Open Dataset loaded in the AWS S3 public bucket, the following tweaks are necessary:
 
-1. Change the dimension of the output layer in `model` to match the new classification task. Since the Waymo Open Dataset contains annotations for three classes (car, pedestrian and cyclist), we should set:
+* Change the dimension of the output layer in `model` to match the new classification task. Since the Waymo Open Dataset contains annotations for three classes (car, pedestrian and cyclist), we should set:
   * `num_classes: 3`
-    
-3. Set the path to the new training dataset and label map in `train_input_reader`:
+* Set the path to the new training dataset and label map in `train_input_reader`:
   * `input_path: "/opt/ml/input/data/train/*.tfrecord"`
-  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
-    
-3. Set the path to the new evaluation dataset and label map in `eval_input_reader`:
+  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`  
+* Set the path to the new evaluation dataset and label map in `eval_input_reader`:
   * `input_path: "/opt/ml/input/data/val/*.tfrecord"`
-  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`
-    
-4. Set the path to the pre-trained weigths and specify the tuning type in `train_config`:
+  * `label_map_path: "/opt/ml/input/data/train/label_map.pbtxt"`    
+* Set the path to the pre-trained weigths and specify the tuning type in `train_config`:
   * `fine_tune_checkpoint: "checkpoint/ckpt-0"`
   * `fine_tune_checkpoint_type: "detection"`
 
