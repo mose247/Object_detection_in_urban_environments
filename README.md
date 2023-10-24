@@ -77,7 +77,7 @@ Finally, the following data augmentations are incorporated to diversify the trai
   }
   ```
 
-* **Random Crop with Specific Parameters**: random cropping of the input images enables models to learn how to hanlde objects of different size and aspect ratio. This can be particularly important for accurately detecting objects that can appear at different distances.
+* **Random Crop**: random cropping of the input images enables models to learn how to hanlde objects of different size and aspect ratio. This can be particularly important for accurately detecting objects that can appear at different distances.
   ```
   data_augmentation_options {
     random_crop_image {
