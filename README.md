@@ -50,6 +50,23 @@ Additionaly, one may also experiment with different optimization strategies, lea
 
 In order to minimize the loss function **SGD with Momentum** was used. With respect to Vanilla SGD, this optimization technique tends to converge faster and is more robust to local minima. Nevertheless, it tends to obscillate more. To reduce obscillation a cosine annealing with linear warm-up was used. The warm-up allows to reduce potential early overfitting, while the decay should limit obscillations in later stages of the training.
 
+```
+  optimizer {
+    momentum_optimizer: {
+      learning_rate: {
+        cosine_decay_learning_rate {
+          learning_rate_base: .04         # learning rate to reach at the end of the warmup
+          total_steps: 30000              # number of decay steps
+          warmup_learning_rate: .001      # small initial learning rate
+          warmup_steps: 500               # number of warmup steps
+        }
+      }
+      momentum_optimizer_value: 0.9       #  momentum coefficient 
+    }
+    use_moving_average: false
+  }
+```
+
 ### Modify output layer
 
 
